@@ -131,6 +131,7 @@ func onboardCmdInit() {
 	onboardCmd.Flags().Bool("allow-credential-reuse", false, "Allow credential reuse protocol during onboarding")
 	onboardCmd.Flags().String("cipher", "A128GCM", "Name of cipher suite to use for encryption (see usage)")
 	onboardCmd.Flags().Bool("enable-interop-test", false, "Enable FIDO Alliance interop test module (fsim.Interop)")
+	onboardCmd.Flags().String("fdo-version", "200", "FDO protocol version to use: 101 (FDO 1.1) or 200 (FDO 2.0)")
 	onboardCmd.Flags().String("kex", "", "Name of cipher suite to use for key exchange (see usage)")
 	onboardCmd.Flags().Bool("insecure-tls", false, "Skip TLS certificate verification")
 	onboardCmd.Flags().Int("max-serviceinfo-size", serviceinfo.DefaultMTU, "Maximum service info size to receive")
@@ -459,6 +460,10 @@ func transferOwnership2(ctx context.Context, transport fdo.Transport, to1d *cose
 		}()
 	}
 
+	if onboardConfig.Onboard.FDOVersion == "200" {
+		slog.Info("Using FDO 2.0 protocol (message types 80-91)")
+		return fdo.TO2v200(ctx, transport, to1d, conf)
+	}
 	return fdo.TO2(ctx, transport, to1d, conf)
 }
 
@@ -583,6 +588,11 @@ func (o *OnboardClientConfig) validate() error {
 
 	if o.Onboard.MaxServiceInfoSize < 0 || o.Onboard.MaxServiceInfoSize > math.MaxUint16 {
 		return fmt.Errorf("max-serviceinfo-size must be between 0 and %d", math.MaxUint16)
+	}
+
+	validFDOVersions := []string{"101", "200"}
+	if !slices.Contains(validFDOVersions, o.Onboard.FDOVersion) {
+		return fmt.Errorf("invalid --fdo-version: '%s' [options: %s]", o.Onboard.FDOVersion, strings.Join(validFDOVersions, ", "))
 	}
 
 	return nil

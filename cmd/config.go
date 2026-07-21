@@ -54,6 +54,7 @@ type OnboardConfig struct {
 	Cipher               string        `mapstructure:"cipher"`
 	DefaultWorkingDir    string        `mapstructure:"default-working-dir"`
 	EnableInteropTest    bool          `mapstructure:"enable-interop-test"`
+	FDOVersion           string        `mapstructure:"fdo-version"`
 	InsecureTLS          bool          `mapstructure:"insecure-tls"`
 	MaxServiceInfoSize   int           `mapstructure:"max-serviceinfo-size"`
 	AllowCredentialReuse bool          `mapstructure:"allow-credential-reuse"`
