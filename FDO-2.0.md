@@ -7,12 +7,14 @@ This client supports both FDO 1.1 and FDO 2.0 protocols.
 Use the `--fdo-version` flag to select the protocol version:
 
 ```bash
-# FDO 2.0 (default)
-go-fdo-client onboard --fdo-version 200 --blob cred.bin --key ec256 --kex ECDH256
+# FDO 1.1 (default - for backward compatibility)
+go-fdo-client onboard --blob cred.bin --key ec256 --kex ECDH256
 
-# FDO 1.1
-go-fdo-client onboard --fdo-version 101 --blob cred.bin --key ec256 --kex ECDH256
+# FDO 2.0 (explicit)
+go-fdo-client onboard --fdo-version 200 --blob cred.bin --key ec256 --kex ECDH256
 ```
+
+**Default is FDO 1.1** (`101`) for backward compatibility with existing servers.
 
 ## FDO 2.0 Features
 
@@ -56,10 +58,10 @@ Version negotiation happens automatically during TO1 via capability flags.
 
 ## Examples
 
-### Basic FDO 2.0 Onboarding
+### Basic FDO 1.1 Onboarding (Default)
 
 ```bash
-# Using default FDO 2.0
+# Default FDO 1.1
 go-fdo-client onboard \
   --blob /etc/fdo/device_credential.bin \
   --key ec256 \
@@ -67,12 +69,12 @@ go-fdo-client onboard \
   --cipher A128GCM
 ```
 
-### Explicit FDO 1.1 Onboarding
+### FDO 2.0 Onboarding
 
 ```bash
-# Force FDO 1.1
+# Explicit FDO 2.0
 go-fdo-client onboard \
-  --fdo-version 101 \
+  --fdo-version 200 \
   --blob /etc/fdo/device_credential.bin \
   --key ec256 \
   --kex ECDH256
