@@ -45,8 +45,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZVejAe8=
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
-github.com/runcom/go-fdo v0.0.0-20260722104355-282121892300 h1:p+Sl4J3zGpudJPOCmVFWXL4RGJC+47Ij6WFIrca4Ap4=
-github.com/runcom/go-fdo v0.0.0-20260722104355-282121892300/go.mod h1:01JaWYOQtO5PP2MjiddBMzfAXmx9WPILx+IHwWXszAA=
+github.com/runcom/go-fdo v0.0.0-20260722194549-8b6a6d24a9fc h1:khdOrslX1LR/MqqSEuZVTCp3xMljvMzs1nIH3TkX90c=
+github.com/runcom/go-fdo v0.0.0-20260722194549-8b6a6d24a9fc/go.mod h1:01JaWYOQtO5PP2MjiddBMzfAXmx9WPILx+IHwWXszAA=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/sagikazarmark/locafero v0.11.0 h1:1iurJgmM9G3PA/I+wWYIOw/5SyBtxapeHDcg+AAIFXc=
 github.com/sagikazarmark/locafero v0.11.0/go.mod h1:nVIGvgyzw595SUSUE6tvCp3YYTeHs15MvlmU87WwIik=
